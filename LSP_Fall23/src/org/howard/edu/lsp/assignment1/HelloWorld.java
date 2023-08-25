@@ -2,7 +2,7 @@ package org.howard.edu.lsp.assignment1;
 
 public abstract class HelloWorld {
 `	/**
-	* Madeline Bumpus
+	* Madeline Bumpus :0
 	* @param args
 	*/
 	
