@@ -6,7 +6,8 @@ import java.io.FileNotFoundException;
 public class assignment2 {
 	public static void main(String[] args) {
 		FileReader filename= new FileReader();
-		HashMap<String, Integer> hashmap = new HashMap<String,Integer>();
+		HashMap<String, Integer> hashmap = new HashMap<String,Integer>(); //map word to number of occurrences
+		
 		try {
 			String filepath = filename.readToString("words.txt");
 			System.out.println(filepath);

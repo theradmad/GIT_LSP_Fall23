@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class FileReader {
 	public FileReader() {
 		System.out.println("My constructor!");
+		
 	}
 	public String readToString(String resource) throws FileNotFoundException {
 		URL url = getClass().getClassLoader().getResource(resource);
@@ -28,6 +29,6 @@ public class FileReader {
 					sc.close();
 			}
 		}
-		throw new FileNotFoundException();
+		throw new FileNotFoundException(); //if file not ofund
 	}
 }

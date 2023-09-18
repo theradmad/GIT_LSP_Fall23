@@ -7,7 +7,8 @@ public class WordCounterDriver {
 		try {
 			System.out.println(fr.readToString("words.txt"));	
 		} catch (FileNotFoundException e) {
-				e.printStackTrace();
+				e.printStackTrace(); //if file not found
+				
 			}
 		
 		
