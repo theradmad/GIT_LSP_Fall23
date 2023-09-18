@@ -6,7 +6,7 @@ import java.net.URL;
 import java.util.Scanner;
 
 public class FileReader {
-	public FileReader {
+	public FileReader() {
 		System.out.println("My constructor!");
 	}
 	public String readToString(String resource) throws FileNotFoundException {
@@ -23,11 +23,11 @@ public class FileReader {
 					output = output + sc.nextLine() + " ";
 					
 				}
-				return output.trim()
+				return output.trim();
 			} finally {
 					sc.close();
 			}
 		}
-		throw new FileNotFoundException;
+		throw new FileNotFoundException();
 	}
 }

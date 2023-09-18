@@ -1,13 +1,14 @@
 package org.howard.edu.lsp.assignment2;
 
 import java.util.HashMap;
+import java.io.FileNotFoundException;
 
 public class assignment2 {
 	public static void main(String[] args) {
 		FileReader filename= new FileReader();
-		HashMap<String, Integer> hashmap = new Hashmap<String,Integer>();
+		HashMap<String, Integer> hashmap = new HashMap<String,Integer>();
 		try {
-			String filepath = filename.readToString("main/java/resouce/words.txt");
+			String filepath = filename.readToString("words.txt");
 			System.out.println(filepath);
 			String[] separated = filepath.toLowerCase().split(" ");
 			for (int x = 0; x < separated.length; x ++) {
