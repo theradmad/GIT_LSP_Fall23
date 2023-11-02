@@ -13,6 +13,7 @@ public class IntegerSetTest {
     @Test
     public void testAdd() {
         IntegerSet intSet = new IntegerSet();
+        
         intSet.add(5);
         assertTrue(intSet.contains(5));
     }

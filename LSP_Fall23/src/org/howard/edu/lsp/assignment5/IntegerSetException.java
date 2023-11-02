@@ -6,10 +6,12 @@ import java.util.HashSet;
 import java.util.Collections;
 
 
+
 /**
+ * 
+ * @author mbumpus
  * error to throw if theres an issue
  * prints a message depending on error
- * @author mbumpus
  *
  */
 public class IntegerSetException extends RuntimeException {

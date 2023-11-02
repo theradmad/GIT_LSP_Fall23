@@ -1,5 +1,6 @@
 package org.howard.edu.lsp.assignment5;
 
+
 import org.howard.edu.lsp.assignment5.IntegerSetException;
 import java.util.List;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.Collections;
 /**
  * Represents a set of integers and provides various operations on the set.
  */
+
 public class IntegerSet {
 	private List<Integer> set;
 	/**
