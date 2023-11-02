@@ -18,6 +18,7 @@ public class IntegerSetTest {
         assertTrue(intSet.contains(5));
     }
     
+    @Test
     public void testRemove() {
         IntegerSet intSet = new IntegerSet();
         intSet.add(5);
@@ -35,6 +36,14 @@ public class IntegerSetTest {
         intSet.add(78);
         assertTrue(intSet.contains(5));
         assertFalse(intSet.contains(67));
+    }
+    
+    @Test
+    public void testToString() {
+        IntegerSet intSet = new IntegerSet();
+        intSet.add(5);
+        intSet.add(78);
+        assertEquals(intSet.toString(), "[5, 78]");
     }
     
     @Test
