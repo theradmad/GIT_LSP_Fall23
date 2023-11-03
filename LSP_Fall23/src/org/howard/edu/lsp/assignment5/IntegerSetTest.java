@@ -9,6 +9,13 @@ import java.util.ArrayList;
 
 public class IntegerSetTest {
     
+	@Test
+	@DisplayName("test that a new, empty integer set is created")
+    public void testConstructor() {
+        IntegerSet intSet = new IntegerSet(); 
+        assertTrue(intSet.isEmpty()); 
+    }
+	
     @Test
     @DisplayName("Test case for add")
     public void testAdd() {
