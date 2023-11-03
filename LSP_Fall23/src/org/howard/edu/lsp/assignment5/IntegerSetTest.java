@@ -1,7 +1,6 @@
 package org.howard.edu.lsp.assignment5;
 import org.howard.edu.lsp.assignment5.IntegerSet;
-
-
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,6 +10,7 @@ import java.util.ArrayList;
 public class IntegerSetTest {
     
     @Test
+    @DisplayName("Test case for add")
     public void testAdd() {
         IntegerSet intSet = new IntegerSet();
         
@@ -19,6 +19,7 @@ public class IntegerSetTest {
     }
     
     @Test
+    @DisplayName("Test case for remove")
     public void testRemove() {
         IntegerSet intSet = new IntegerSet();
         intSet.add(5);
@@ -30,6 +31,7 @@ public class IntegerSetTest {
     }
     
     @Test
+    @DisplayName("Test case for contain")
     public void testContains() {
         IntegerSet intSet = new IntegerSet();
         intSet.add(5);
@@ -39,6 +41,7 @@ public class IntegerSetTest {
     }
     
     @Test
+    @DisplayName("Test case for toString")
     public void testToString() {
         IntegerSet intSet = new IntegerSet();
         intSet.add(5);
@@ -47,6 +50,7 @@ public class IntegerSetTest {
     }
     
     @Test
+    @DisplayName("Test case for empty")
     public void testEmpty() {
         IntegerSet intSet = new IntegerSet();
         intSet.add(5);
@@ -58,6 +62,7 @@ public class IntegerSetTest {
     
 
     @Test
+    @DisplayName("Test case for clear")
     public void testClear() {
         IntegerSet intSet = new IntegerSet();
         intSet.add(5);
@@ -70,14 +75,28 @@ public class IntegerSetTest {
     
     
     @Test
+    @DisplayName("Test case for largest")
     public void testLargest() {
         IntegerSet intSet = new IntegerSet();
         intSet.add(5);
         intSet.add(10);
         assertEquals(10, intSet.largest());
     }
+    
+    @Test
+    @DisplayName("Test case for largest exception")
+    public void testLargestException() {
+        IntegerSet intSet = new IntegerSet(); 
+        try {
+            intSet.largest(); 
+            fail("Expected IntegerSetException was not thrown");
+        } catch (IntegerSetException e) {
+            
+        }
+    }
 
     @Test
+    @DisplayName("Test case for smallest")
     public void testSmallest() {
         IntegerSet intSet = new IntegerSet();
         intSet.add(5);
@@ -86,6 +105,20 @@ public class IntegerSetTest {
     }
     
     @Test
+    @DisplayName("Test case for smallest exception")
+    public void testSmallestException() {
+        IntegerSet intSet = new IntegerSet(); 
+        try {
+            intSet.smallest(); 
+            fail("Expected IntegerSetException was not thrown");
+        } catch (IntegerSetException e) {
+            
+        }
+    }
+    
+    
+    @Test
+    @DisplayName("Test case for length")
     public void testLength() {
         IntegerSet intSet = new IntegerSet();
         intSet.add(5);
@@ -93,6 +126,8 @@ public class IntegerSetTest {
         assertEquals(2, intSet.length());
     }
     
+    @Test
+    @DisplayName("Test case for equals")
     public void testEquals() {
         IntegerSet intSetA = new IntegerSet();
         intSetA.add(5);
@@ -108,6 +143,7 @@ public class IntegerSetTest {
     }
     
     @Test
+    @DisplayName("Test case for union")
     public void testUnion() {
         IntegerSet intSetA = new IntegerSet();
         intSetA.add(1);
@@ -122,6 +158,7 @@ public class IntegerSetTest {
     }
 
     @Test
+    @DisplayName("Test case for intersect")
     public void testIntersect() {
         IntegerSet intSetA = new IntegerSet();
         intSetA.add(1);
@@ -136,6 +173,7 @@ public class IntegerSetTest {
     }
     
     @Test
+    @DisplayName("Test case for set difference")
     public void testDiff() {
         IntegerSet intSetA = new IntegerSet();
         intSetA.add(1);
@@ -150,6 +188,7 @@ public class IntegerSetTest {
     }
 
     @Test
+    @DisplayName("Test case for complement")
     public void testComplement() {
         IntegerSet intSetA = new IntegerSet();
         intSetA.add(1);
