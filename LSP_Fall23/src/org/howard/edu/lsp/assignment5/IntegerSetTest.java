@@ -95,13 +95,9 @@ public class IntegerSetTest {
     @Test
     @DisplayName("Test case for largest exception")
     public void testLargestException() {
-        setA.clear();
-        try {
-            setA.largest(); 
-            fail("Expected IntegerSetException was not thrown");
-        } catch (IntegerSetException e) {
-            
-        }
+    	setA.clear(); 
+        Throwable exception = assertThrows(IntegerSetException.class, () -> setA.largest() );
+        assertEquals("Set is empty.", exception.getMessage());
     }
 
     @Test
@@ -119,13 +115,11 @@ public class IntegerSetTest {
     @DisplayName("Test case for smallest exception")
     public void testSmallestException() {
         setA.clear(); 
-        try {
-            setA.smallest(); 
-            fail("Expected IntegerSetException was not thrown");
-        } catch (IntegerSetException e) {
-            
-        }
+        Throwable exception = assertThrows(IntegerSetException.class, () -> setA.smallest() );
+        assertEquals("Set is empty.", exception.getMessage());
     }
+        
+        
     
     
     @Test
