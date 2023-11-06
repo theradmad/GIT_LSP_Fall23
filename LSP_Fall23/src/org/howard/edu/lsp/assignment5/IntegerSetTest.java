@@ -134,6 +134,16 @@ public class IntegerSetTest {
     }
     
     @Test
+    @DisplayName("Test case for toString")
+    public void testString() {
+        IntegerSet intSet = new IntegerSet();
+        intSet.add(5);
+        intSet.add(10);
+        intSet.add(15);
+        assertEquals("[5, 10, 15]", intSet.toString());
+    }
+    
+    @Test
     @DisplayName("Test case for equals")
     public void testEquals() {
         IntegerSet intSetA = new IntegerSet();
