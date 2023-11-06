@@ -1,5 +1,6 @@
 package org.howard.edu.lsp.assignment5;
 import org.howard.edu.lsp.assignment5.IntegerSet;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,93 +10,90 @@ import java.util.ArrayList;
 
 public class IntegerSetTest {
     
+	private IntegerSet setA;
+	
+	@BeforeEach
+	void setUp() {
+		setA = new IntegerSet();
+	}
+	
 	@Test
 	@DisplayName("test that a new, empty integer set is created")
     public void testConstructor() {
-        IntegerSet intSet = new IntegerSet(); 
-        assertTrue(intSet.isEmpty()); 
+        
+        assertTrue(setA.isEmpty()); 
     }
 	
     @Test
     @DisplayName("Test case for add")
     public void testAdd() {
-        IntegerSet intSet = new IntegerSet();
         
-        intSet.add(5);
-        assertTrue(intSet.contains(5));
+        
+        setA.add(5);
+        assertTrue(setA.contains(5));
     }
     
     @Test
     @DisplayName("Test case for remove")
     public void testRemove() {
-        IntegerSet intSet = new IntegerSet();
-        intSet.add(5);
-        intSet.add(6);
-        intSet.add(9);
-        intSet.remove(6);
-        assertTrue(intSet.contains(5));
-        assertFalse(intSet.contains(6));
+        
+      
+        setA.add(6);
+        setA.add(9);
+        setA.remove(6);
+        assertTrue(setA.contains(9));
+        assertFalse(setA.contains(6));
     }
+    
     
     @Test
     @DisplayName("Test case for contain")
     public void testContains() {
-        IntegerSet intSet = new IntegerSet();
-        intSet.add(5);
-        intSet.add(78);
-        assertTrue(intSet.contains(5));
-        assertFalse(intSet.contains(67));
+        
+        setA.add(78);
+        assertTrue(setA.contains(78));
+        assertFalse(setA.contains(67));
     }
     
-    @Test
-    @DisplayName("Test case for toString")
-    public void testToString() {
-        IntegerSet intSet = new IntegerSet();
-        intSet.add(5);
-        intSet.add(78);
-        assertEquals(intSet.toString(), "[5, 78]");
-    }
+    
     
     @Test
     @DisplayName("Test case for empty")
     public void testEmpty() {
-        IntegerSet intSet = new IntegerSet();
-        intSet.add(5);
-        assertFalse(intSet.isEmpty());
-        intSet.remove(5);
-        assertTrue(intSet.isEmpty());
+        setA.add(34);
+        assertFalse(setA.isEmpty());
+        setA.clear();
+        assertTrue(setA.isEmpty());
     }
-    
     
 
     @Test
     @DisplayName("Test case for clear")
     public void testClear() {
-        IntegerSet intSet = new IntegerSet();
-        intSet.add(5);
-        intSet.add(57);
-        assertFalse(intSet.isEmpty());
-        intSet.clear();
-        assertTrue(intSet.isEmpty());
+        
+    	setA.add(57);
+        assertFalse(setA.isEmpty());
+        setA.clear();
+        assertTrue(setA.isEmpty());
     }
-    
     
     
     @Test
     @DisplayName("Test case for largest")
     public void testLargest() {
-        IntegerSet intSet = new IntegerSet();
-        intSet.add(5);
-        intSet.add(10);
-        assertEquals(10, intSet.largest());
+        setA.add(5);
+        setA.add(6);
+        setA.add(78);
+        setA.add(69);
+        assertEquals(78, setA.largest());
     }
     
     @Test
     @DisplayName("Test case for largest exception")
     public void testLargestException() {
-        IntegerSet intSet = new IntegerSet(); 
+        setA.clear();
         try {
-            intSet.largest(); 
+            setA.largest(); 
             fail("Expected IntegerSetException was not thrown");
         } catch (IntegerSetException e) {
             
@@ -105,18 +103,19 @@ public class IntegerSetTest {
     @Test
     @DisplayName("Test case for smallest")
     public void testSmallest() {
-        IntegerSet intSet = new IntegerSet();
-        intSet.add(5);
-        intSet.add(10);
-        assertEquals(5, intSet.smallest());
+    	setA.add(5);
+        setA.add(6);
+        setA.add(78);
+        setA.add(69);
+        assertEquals(5, setA.smallest());
     }
     
     @Test
     @DisplayName("Test case for smallest exception")
     public void testSmallestException() {
-        IntegerSet intSet = new IntegerSet(); 
+        setA.clear(); 
         try {
-            intSet.smallest(); 
+            setA.smallest(); 
             fail("Expected IntegerSetException was not thrown");
         } catch (IntegerSetException e) {
             
@@ -127,97 +126,112 @@ public class IntegerSetTest {
     @Test
     @DisplayName("Test case for length")
     public void testLength() {
-        IntegerSet intSet = new IntegerSet();
-        intSet.add(5);
-        intSet.add(10);
-        assertEquals(2, intSet.length());
+    	setA.add(5);
+        setA.add(6);
+        setA.add(78);
+        setA.add(69);
+        assertEquals(4, setA.length());
     }
     
     @Test
     @DisplayName("Test case for toString")
     public void testString() {
-        IntegerSet intSet = new IntegerSet();
-        intSet.add(5);
-        intSet.add(10);
-        intSet.add(15);
-        assertEquals("[5, 10, 15]", intSet.toString());
+    	setA.add(5);
+        setA.add(6);
+        setA.add(78);
+        setA.add(69);
+        
+        assertEquals("[5, 6, 78, 69]", setA.toString());
     }
     
     @Test
     @DisplayName("Test case for equals")
     public void testEquals() {
-        IntegerSet intSetA = new IntegerSet();
-        intSetA.add(5);
-        intSetA.add(10);
-        IntegerSet intSetB = new IntegerSet();
-        intSetB.add(5);
-        intSetB.add(10);
-        IntegerSet intSetC = new IntegerSet();
-        intSetC.add(6);
-        intSetC.add(109);
-        assertTrue(intSetA.equals(intSetB));
-        assertFalse(intSetA.equals(intSetC));
+    	setA.add(5);
+        setA.add(6);
+        setA.add(78);
+        setA.add(69);
+        IntegerSet setB = new IntegerSet();
+        IntegerSet setC = new IntegerSet();
+        setB.add(5);
+        setB.add(6);
+        setB.add(78);
+        setB.add(69);
+        setC.add(5);
+        setC.add(8);
+        setC.add(42);
+        assertTrue(setA.equals(setB));
+        assertFalse(setA.equals(setC));
     }
     
     @Test
     @DisplayName("Test case for union")
     public void testUnion() {
-        IntegerSet intSetA = new IntegerSet();
-        intSetA.add(1);
-        intSetA.add(2);
-        IntegerSet intSetB = new IntegerSet();
-        intSetB.add(2);
-        intSetB.add(3);
-        intSetA.union(intSetB);
-        assertTrue(intSetA.contains(1));
-        assertTrue(intSetA.contains(2));
-        assertTrue(intSetA.contains(3));
+    	setA.add(5);
+        setA.add(6);
+        setA.add(78);
+        setA.add(69);
+        IntegerSet setB = new IntegerSet();
+        setB.add(5);
+        setB.add(90);
+        setB.add(43);
+        setB.add(650);
+        setA.union(setB);
+        assertTrue(setA.contains(5));
+        assertTrue(setA.contains(90));
+        assertTrue(setA.contains(69));
     }
-
     @Test
     @DisplayName("Test case for intersect")
     public void testIntersect() {
-        IntegerSet intSetA = new IntegerSet();
-        intSetA.add(1);
-        intSetA.add(2);
-        IntegerSet intSetB = new IntegerSet();
-        intSetB.add(2);
-        intSetB.add(3);
-        intSetA.intersect(intSetB);
-        assertTrue(intSetA.contains(2));
-        assertFalse(intSetA.contains(1));
-        assertFalse(intSetA.contains(3));
+    	setA.add(5);
+        setA.add(78);
+        setA.add(69);
+    	IntegerSet setB = new IntegerSet();
+        setB.add(5);
+        setB.add(6);
+        setB.add(43);
+        setB.add(78);
+        setA.intersect(setB);
+        assertTrue(setA.contains(5));
+        assertFalse(setA.contains(6));
+        assertFalse(setA.contains(43));
     }
     
     @Test
     @DisplayName("Test case for set difference")
     public void testDiff() {
-        IntegerSet intSetA = new IntegerSet();
-        intSetA.add(1);
-        intSetA.add(2);
-        IntegerSet intSetB = new IntegerSet();
-        intSetB.add(2);
-        intSetB.add(3);
-        intSetA.diff(intSetB);
-        assertTrue(intSetA.contains(1));
-        assertFalse(intSetA.contains(2));
-        assertFalse(intSetA.contains(3));
+    	IntegerSet setB = new IntegerSet();
+    	setA.add(5);
+        setA.add(6);
+        setA.add(78);
+        setA.add(69);
+        setB.add(5);
+        setB.add(6);
+        setB.add(43);
+        setB.add(98);
+        setA.diff(setB);
+        assertTrue(setA.contains(78));
+        assertFalse(setA.contains(5));
+        assertFalse(setA.contains(6));
     }
-
+    
+   
     @Test
     @DisplayName("Test case for complement")
     public void testComplement() {
-        IntegerSet intSetA = new IntegerSet();
-        intSetA.add(1);
-        intSetA.add(2);
-        IntegerSet intSetB = new IntegerSet();
-        intSetB.add(2);
-        intSetB.add(3);
-        intSetA.complement(intSetB);
-        assertTrue(intSetA.contains(1));
-        assertFalse(intSetA.contains(2));
-        assertFalse(intSetA.contains(3));
+    	setA.add(5);
+        setA.add(6);
+        setA.add(78);
+        setA.add(69);
+        IntegerSet setB = new IntegerSet();
+        setB.add(2);
+        setB.add(3);
+        setB.add(78);
+        setA.complement(setB);
+        assertTrue(setA.contains(5));
+        assertFalse(setA.contains(78));
+        assertFalse(setA.contains(3));
     }
-    
     
 }
