@@ -86,8 +86,10 @@ public class IntegerSetTest {
         setA.add(5);
         setA.add(6);
         setA.add(78);
+        setA.add(-6473);
         setA.add(69);
-        assertEquals(78, setA.largest());
+        setA.add(4270983);
+        assertEquals(4270983, setA.largest());
     }
     
     @Test
@@ -106,10 +108,11 @@ public class IntegerSetTest {
     @DisplayName("Test case for smallest")
     public void testSmallest() {
     	setA.add(5);
+    	setA.add(-90);
         setA.add(6);
         setA.add(78);
         setA.add(69);
-        assertEquals(5, setA.smallest());
+        assertEquals(-90, setA.smallest());
     }
     
     @Test
@@ -142,8 +145,8 @@ public class IntegerSetTest {
         setA.add(6);
         setA.add(78);
         setA.add(69);
-        
-        assertEquals("[5, 6, 78, 69]", setA.toString());
+        setA.add(-9);       
+        assertEquals("[5, 6, 78, 69, -9]", setA.toString());
         setA.clear();
         assertEquals("[]", setA.toString());
     }
@@ -164,6 +167,7 @@ public class IntegerSetTest {
         setC.add(5);
         setC.add(8);
         setC.add(42);
+        setC.add(-9);
         assertTrue(setA.equals(setB));
         assertFalse(setA.equals(setC));
     }
